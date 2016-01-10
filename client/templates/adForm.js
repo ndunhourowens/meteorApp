@@ -1,3 +1,13 @@
+Template.adForm.created = function(){
+
+};
+
+Template.adForm.rendered = function(){
+
+};
+
+Template.adForm.helpers({});
+
 Template.adForm.events({
 	'submit form': function(event) {
 		event.preventDefault();
@@ -9,7 +19,9 @@ Template.adForm.events({
 			size: event.target.size.value,
 			quantity: event.target.quantity.value,
 			price: event.target.price.value,
-			createdAt: new Date()
+			createdAt: new Date(),
+			owner: Meteor.userId(),
+			username: Meteor.user().username
 		}
 		Meteor.call("addData", newAd);
 		event.target.name.value = "",
@@ -19,4 +31,4 @@ Template.adForm.events({
 		event.target.quantity.value = "",
 		event.target.price.value = ""
 	}
-})
+});

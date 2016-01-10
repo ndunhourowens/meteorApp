@@ -1,5 +1,5 @@
 <template name="adForm">
-
+{{#if currentUser}}
 <form>
 	<div class="form-group">
 		<label>Personal Info</label>
@@ -15,4 +15,7 @@
 	</div>
 	<button type="submit" class="btn btn-lg btn-primary btn-block">Create Ad</button>
 </form>
+{{else}}
+<div>You must be logged in to add a post"</div>
+{{/if}}
 </template>
