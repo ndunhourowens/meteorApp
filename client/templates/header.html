@@ -1,0 +1,9 @@
+<template name='header'>
+	{{#if currentUser }}
+		<a href="/newAd">add</a> - <a href="/marketPlace">market</a> - <a href='#' class='js-logout'>Logout</a>
+	{{else}}
+		<a href="/fishermanRegister">Fisherman</a><br>
+		<a href="/consumerRegister">Buyer</a><br>
+		{{> login}}
+	{{/if}}
+</template>

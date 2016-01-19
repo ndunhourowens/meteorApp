@@ -21,14 +21,15 @@ Template.adForm.events({
 			price: event.target.price.value,
 			createdAt: new Date(),
 			owner: Meteor.userId(),
-			username: Meteor.user().username
+			username: Meteor.user()
 		}
-		Meteor.call("addData", newAd);
-		event.target.name.value = "",
-		event.target.phone.value = "",
-		event.target.fish.value = "",
-		event.target.size.value = "",
-		event.target.quantity.value = "",
-		event.target.price.value = ""
+		Meteor.call("addData", newAd, function(error, success) {
+			if(error) {
+				console.log(error);
+			}
+			if(success) {
+				Router.go('/managePosts');
+			}
+		});
 	}
 });
