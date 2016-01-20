@@ -3,5 +3,5 @@ Meteor.methods({
 		var adId = Ads.insert(ad);
 		return adId;
 		
-	}
+	},	
 });

@@ -11,8 +11,8 @@ Template.login.helpers({});
 Template.login.events({
 	'submit form': function(event, data){
 		event.preventDefault();
-		var email = data.find('#login-email').value;
-		var password = data.find('#login-password').value;
+		var email = $('[name=loginEmail]').val();
+		var password = $('[name=loginPassword]').val();
 		Meteor.loginWithPassword(email, password);
 		Router.go('/marketPlace');
 	}
