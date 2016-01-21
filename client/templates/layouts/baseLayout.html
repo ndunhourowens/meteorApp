@@ -1,5 +1,10 @@
 <template name='baseLayout'>
 	<div>
+		{{#if currentUser.fisherman}}
+			{{> fishermanHeader}}
+		{{else}}
+			{{> consumerHeader}}
+		{{/if}}
 		{{>yield}}
 	</div>
 </template>
