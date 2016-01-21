@@ -1,15 +1,15 @@
 Template.managePosts.created = function(){
-
+	
 };
 
 Template.managePosts.rendered = function(){
 
 };
 
-Template.managePosts.helpers({});
-
-Template.managePosts.events({
-	userEmail: function() {
-    	return Meteor.user().emails[0].address;
-  	}
+Template.managePosts.helpers({
+	firstName: function() {
+		return Meteor.user().profile.firstName;
+	}
 });
+
+Template.managePosts.events({});

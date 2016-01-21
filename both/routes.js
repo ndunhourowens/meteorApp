@@ -14,7 +14,13 @@ Router.configure({
 // })
 Router.route('', {
 	path: '/',
-	template: 'marketPlace'
+	template: 'marketPlace',
+	subscriptions: function() {
+		return Meteor.subscribe('ads');
+	},
+	data: function() {
+		return Ads.find({}, {sort: {createdAt: -1}});
+	}
 });
 Router.route('profile', {
 	path: '/profile/:_id',
@@ -29,7 +35,6 @@ Router.route('marketPlace', {
 	data: function() {
 		return Ads.find({}, {sort: {createdAt: -1}});
 	}
-
 });
 Router.route('fishermanRegister', {
 	path: '/fishermanRegister',
@@ -53,7 +58,10 @@ Router.route('managePosts', {
 	path: '/managePosts',
 	template: 'managePosts',
 	subscriptions: function() {
-		return Meteor.subscribe('fishermanAds');
+		return [
+			Meteor.subscribe('fishermanAds'),
+			Meteor.subscribe('thisUser'),
+		];
 	},
 	data: function() {
 		return Ads.find({}, {sort: {createdAt: -1}});

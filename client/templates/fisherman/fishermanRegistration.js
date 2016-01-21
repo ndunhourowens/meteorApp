@@ -19,27 +19,27 @@ Template.fishermanRegister.events({
 			licenceName: event.target.licenceName.value,
 			licenceNum: event.target.licenceNum.value,
 			licenceEx: event.target.licenceEx.value,
-			email: event.target.email.value,
-			password: event.target.password.value,
-		}
-		Accounts.createUser({
-			"email": fisherman.email,
-			"firstName": fisherman.firstName,
-			"lastName": fisherman.lastName,
-			"phone": fisherman.phone,
-			"licenceLoc": fisherman.licenceLoc,
-			"licenceName": fisherman.licenceName,
-			"licenceNum": fisherman.licenceNum,
-			"licenceEx": fisherman.licenceEx,
-			"password": fisherman.password,
-		}, function(err) {
-			if(err) {
-				alert(err.reason)
-			} else {
-				var fishermanId = Meteor.UserId;
+		};
+		var email = event.target.email.value;
+		var password = event.target.password.value;
+		Meteor.call("newFisherman", email, password, function(error, success) {
+			if(error) {
+				console.log(error.reason);
+			}
+			if(success) {
+				Meteor.call("isFisherman", fisherman, function(error, success) {
+					if(error) {
+						console.log(error.reason);
+					}
+					if(success) {
+						console.log('is fisherman', success);
+					}
+				});
+				console.log('created', success);
 			}
 		});
-		Meteor.loginWithPassword(fisherman.email, fisherman.password);
+		
+		Meteor.loginWithPassword(event.target.email.value, event.target.password.value);
 		Router.go('/marketPlace');
 	}
 });

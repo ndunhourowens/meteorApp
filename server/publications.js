@@ -14,3 +14,7 @@ Meteor.publish('fishermanAds', function() {
 		sort: {createdAt: -1}
 	});
 });
+
+Meteor.publish('thisUser', function() {
+	return Meteor.users.find(this.userId);
+})
