@@ -1,0 +1,31 @@
+<template name="fishermanProfile">
+	{{#with formData}}
+	<form>
+	<div class="form-group">
+		<label>Personal Info</label>
+		<input type="text" name="displayName" class="form-control" placeholder="display name" value={{displayName}}>
+		<input type="text" name="firstName" class="form-control" placeholder="first name" value={{firstName}}>
+		<input type="text" name="lastName" class="form-control" placeholder="last name" value={{lastName}}>
+		<input type="text" name="phone" class="form-control" placeholder="###-###-####" value={{phone}}>
+		<textarea name="bio" class="form-control" placeholder="Tell us about you">{{bio}}</textarea> 
+	</div>
+	<div class="form-group">
+		<label>Licence Info</label>
+		<input type="text" name="licLoc" class="form-control" placeholder="Licence Location" value={{licLoc}}>
+		<input type="text" name="licNum" class="form-control" placeholder="Licence Number" value={{licNum}}>
+		<input type="text" name="licName" class="form-control" placeholder="Licence Name" value={{licName}}>
+		<input type="text" name="licEx" class="form-control" placeholder="Licence Expiration" value={{licEx}}>
+	</div>
+	<div class="form-group">
+		<label>Fishing Info</label>
+		<select name='loc'>
+			<option value=0>All of Oahu</option>
+			<option value=1>Town</option>
+			<option value=2>North Shore</option>
+		</select>
+		<input type="text" name="gear" class="form-control" placeholder="Fishing Gear Type" value={{gearType}}>
+	</div>
+	<button type="submit" class="btn btn-lg btn-primary btn-block">Save Changes</button>
+</form>
+{{/with}}
+</template>

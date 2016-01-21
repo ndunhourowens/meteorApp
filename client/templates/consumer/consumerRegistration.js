@@ -1,24 +1,20 @@
-Template.fishermanRegister.created = function(){
+Template.consumerRegister.created = function(){
 
 };
 
-Template.fishermanRegister.rendered = function(){
+Template.consumerRegister.rendered = function(){
 
 };
 
-Template.fishermanRegister.helpers({});
+Template.consumerRegister.helpers({});
 
-Template.fishermanRegister.events({
+Template.consumerRegister.events({
 	'submit form': function(event){
 		event.preventDefault();
-		var fisherman = {
+		var consumer = {
 			firstName: event.target.firstName.value,
 			lastName: event.target.lastName.value,
 			phone: event.target.phone.value,
-			licLoc: event.target.licLoc.value,
-			licName: event.target.licName.value,
-			licNum: event.target.licNum.value,
-			licEx: event.target.licEx.value,
 		};
 		var email = event.target.email.value;
 		var password = event.target.password.value;
@@ -27,12 +23,12 @@ Template.fishermanRegister.events({
 				console.log(error.reason);
 			}
 			if(success) {
-				Meteor.call("updateFisherman", fisherman, function(error, success) {
+				Meteor.call("updateConsumer", consumer, function(error, success) {
 					if(error) {
 						console.log(error.reason);
 					}
 					if(success) {
-						console.log('is fisherman', success);
+						console.log('update', success);
 					}
 				});
 				console.log('created', success);

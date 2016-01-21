@@ -1,18 +1,18 @@
-Template.privateProfile.created = function(){
+Template.fishermanProfile.created = function(){
 
 };
 
-Template.privateProfile.rendered = function(){
+Template.fishermanProfile.rendered = function(){
 
 };
 
-Template.privateProfile.helpers({
+Template.fishermanProfile.helpers({
 	formData: function(){
     	return Meteor.user().profile;
   }
 });
 
-Template.privateProfile.events({
+Template.fishermanProfile.events({
 	'submit form': function(event) {
 		event.preventDefault();
 		var fisherman = {

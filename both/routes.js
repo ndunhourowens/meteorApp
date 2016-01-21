@@ -22,9 +22,13 @@ Router.route('', {
 		return Ads.find({}, {sort: {createdAt: -1}});
 	}
 });
-Router.route('profile', {
-	path: '/privateProfile/:_id',
-	template: 'privateProfile',
+Router.route('fishermanProfile', {
+	path: '/fishermanProfile/:_id',
+	template: 'fishermanProfile',
+});
+Router.route('consumerProfile', {
+	path: '/consumerProfile/:_id',
+	template: 'consumerProfile',
 });
 Router.route('marketPlace', {
 	path: '/marketPlace',
@@ -34,11 +38,20 @@ Router.route('marketPlace', {
 	},
 	data: function() {
 		return Ads.find({}, {sort: {createdAt: -1}});
+	},
+	layout: function(){
+		if(Meteor.user().fisherman){
+			return 'fishermanLayout';
+		}
 	}
 });
 Router.route('fishermanRegister', {
 	path: '/fishermanRegister',
 	template: 'fishermanRegister'
+});
+Router.route('consumerRegister', {
+	path: '/consumerRegister',
+	template: 'consumerRegister'
 });
 Router.route('adForm', {
 	path: '/newAd',
