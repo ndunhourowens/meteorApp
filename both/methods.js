@@ -13,5 +13,8 @@ Meteor.methods({
 			fisherman:true,
 			profile: fisherman,
 		}});
+	},
+	updateFisherman: function(fisherman){
+		return Meteor.users.update({_id:this.userId},{$set: {profile: fisherman}});
 	}
 });

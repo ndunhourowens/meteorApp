@@ -23,8 +23,8 @@ Router.route('', {
 	}
 });
 Router.route('profile', {
-	path: '/profile/:_id',
-	template: 'profile',
+	path: '/privateProfile/:_id',
+	template: 'privateProfile',
 });
 Router.route('marketPlace', {
 	path: '/marketPlace',

@@ -6,7 +6,11 @@ Template.header.rendered = function(){
 
 };
 
-Template.header.helpers({});
+Template.header.helpers({
+	id: function() {
+		return Meteor.user()._id;
+	}
+});
 
 Template.header.events({
 	'click .js-logout': function(event){

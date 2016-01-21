@@ -15,10 +15,10 @@ Template.fishermanRegister.events({
 			firstName: event.target.firstName.value,
 			lastName: event.target.lastName.value,
 			phone: event.target.phone.value,
-			licenceLoc: event.target.licenceLoc.value,
-			licenceName: event.target.licenceName.value,
-			licenceNum: event.target.licenceNum.value,
-			licenceEx: event.target.licenceEx.value,
+			licLoc: event.target.licenceLoc.value,
+			licName: event.target.licenceName.value,
+			licNum: event.target.licenceNum.value,
+			licEx: event.target.licenceEx.value,
 		};
 		var email = event.target.email.value;
 		var password = event.target.password.value;
