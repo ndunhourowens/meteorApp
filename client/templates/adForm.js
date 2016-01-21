@@ -6,23 +6,33 @@ Template.adForm.rendered = function(){
 
 };
 
-Template.adForm.helpers({});
+Template.adForm.helpers({
+	formData: function(){
+    	return Meteor.user().profile;
+  	}
+});
 
 Template.adForm.events({
 	'submit form': function(event) {
 		event.preventDefault();
 
 		var newAd = {
-			name: event.target.name.value,
+			firstName: event.target.firstName.value,
+			lastName: event.target.lastName.value,
 			phone: event.target.phone.value,
 			fish: event.target.fish.value,
 			size: event.target.size.value,
 			quantity: event.target.quantity.value,
 			price: event.target.price.value,
+			perPound: event.target.perPound.value,
+			wholeFish: event.target.wholeFish.value,
+			loc: event.target.loc.value,
+			addDet: event.target.addDet.value,
 			createdAt: new Date(),
 			owner: Meteor.userId(),
-			username: Meteor.user()
+			id: Meteor.user()
 		}
+		console.log(newAd.fish);
 		Meteor.call("addData", newAd, function(error, success) {
 			if(error) {
 				console.log(error);

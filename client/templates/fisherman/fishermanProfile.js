@@ -9,7 +9,7 @@ Template.fishermanProfile.rendered = function(){
 Template.fishermanProfile.helpers({
 	formData: function(){
     	return Meteor.user().profile;
-  }
+  	}
 });
 
 Template.fishermanProfile.events({
