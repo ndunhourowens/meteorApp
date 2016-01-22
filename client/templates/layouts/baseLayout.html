@@ -1,10 +1,12 @@
 <template name='baseLayout'>
-	<div>
-		{{#if currentUser.fisherman}}
-			{{> fishermanHeader}}
-		{{else}}
-			{{> consumerHeader}}
-		{{/if}}
-		{{>yield}}
-	</div>
+  <div>
+    {{#if currentUser.fisherman}}
+      {{> fishermanHeader}}
+    {{else}}
+      {{> consumerHeader}}
+    {{/if}}
+  </div>
+  <div class="container-fluid">
+    {{>yield}}
+  </div>
 </template>
